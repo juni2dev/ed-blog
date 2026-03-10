@@ -13,7 +13,7 @@ theme = "PaperMod"
   TocOpen = false
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
-  profileMode = "index"
+#  profileMode = "index"
 
   [params.homeInfoParams]
     Title = "Edmond Kameni"
