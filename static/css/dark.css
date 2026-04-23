@@ -1,0 +1,73 @@
+html[data-mode="dim"] body {
+  background: #0f172a !important;
+  color: #cbd5e1 !important;
+}
+
+html[data-mode="dim"] article.post_content {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+html[data-mode="dim"] #toc-left-panel {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+html[data-mode="dim"] aside.sidebar section.sidebar_inner > * {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+html[data-mode="dim"] h1.post_title,
+html[data-mode="dim"] div.post_body h2,
+html[data-mode="dim"] div.post_body h3 {
+  color: #e2e8f0 !important;
+}
+
+html[data-mode="dim"] div.post_body p,
+html[data-mode="dim"] div.post_body li,
+html[data-mode="dim"] div.post_body td {
+  color: #cbd5e1 !important;
+}
+
+html[data-mode="dim"] div.post_body blockquote {
+  background: rgba(56,189,248,0.06) !important;
+  border-left-color: #38bdf8 !important;
+}
+
+html[data-mode="dim"] div.post_body thead {
+  background: linear-gradient(90deg, #1e3a5f, #1e40af) !important;
+}
+
+html[data-mode="dim"] div.post_body tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.03) !important;
+}
+
+html[data-mode="dim"] div.post_body table {
+  border-color: #334155 !important;
+}
+
+html[data-mode="dim"] #toc-left-panel #TableOfContents a {
+  color: #64748b !important;
+}
+
+html[data-mode="dim"] #toc-left-panel #TableOfContents a.toc-active {
+  color: #38bdf8 !important;
+  background: rgba(56,189,248,0.12) !important;
+}
+
+html[data-mode="dim"] section.sidebar_inner input[type="search"],
+html[data-mode="dim"] section.sidebar_inner input[type="text"] {
+  background: #0f172a !important;
+  color: #cbd5e1 !important;
+  border-color: #334155 !important;
+}
+
+html[data-mode="dim"] section.sidebar_inner a {
+  color: #93c5fd !important;
+}
+
+html[data-mode="dim"] #reading-progress {
+  background: linear-gradient(90deg, #38bdf8, #1d4ed8) !important;
+}

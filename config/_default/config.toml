@@ -1,0 +1,15 @@
+baseURL = "https://juni2dev.github.io/ed-blog/"
+title = "NetSec Core"
+theme = "clarity"
+defaultContentLanguage = "fr"
+
+mobileNavigation = "left" # Mobile nav menu will open to the left of the screen.
+numberOfTagsShown = 14 # Applies for all other default & custom taxonomies.
+
+customCSS = ["css/custom.css"] # Include custom CSS files
+customJS = ["js/custom.js"] # Include custom JS files
+
+enforceDarkMode = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

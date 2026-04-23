@@ -1,0 +1,70 @@
+<!-- Barre de progression -->
+<div id="reading-progress"></div>
+
+<script>
+(function () {
+  // === 1. Cloner le TOC inline et l'injecter dans la sidebar ===
+  const tocSource = document.querySelector('div.post_toc #TableOfContents');
+  const sidebar = document.querySelector('aside.sidebar div.sidebar_inner');
+
+  if (tocSource && sidebar) {
+    const tocWrapper = document.createElement('div');
+    tocWrapper.id = 'toc-sidebar';
+
+    const tocTitle = document.createElement('h3');
+    tocTitle.textContent = 'Dans cet article';
+    tocWrapper.appendChild(tocTitle);
+
+    const tocClone = tocSource.cloneNode(true);
+    tocWrapper.appendChild(tocClone);
+
+    // Insérer en haut de la sidebar
+    sidebar.insertBefore(tocWrapper, sidebar.firstChild);
+  }
+
+  // === 2. Scroll spy — surligner le titre actif ===
+  const tocLinks = document.querySelectorAll('#toc-sidebar a');
+  const headings = document.querySelectorAll('div.post_body h2, div.post_body h3');
+
+  function getActiveHeading() {
+    const scrollY = window.scrollY + 120;
+    let active = null;
+    headings.forEach(h => {
+      if (h.offsetTop <= scrollY) active = h;
+    });
+    return active;
+  }
+
+  function updateToc() {
+    const active = getActiveHeading();
+    tocLinks.forEach(link => {
+      link.classList.remove('toc-active');
+      if (active && link.getAttribute('href') === '#' + active.id) {
+        link.classList.add('toc-active');
+      }
+    });
+  }
+
+  // === 3. Barre de progression de lecture ===
+  const progressBar = document.getElementById('reading-progress');
+  const article = document.querySelector('div.post_body');
+
+  function updateProgress() {
+    if (!article || !progressBar) return;
+    const articleTop = article.offsetTop;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const percent = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progressBar.style.width = percent + '%';
+  }
+
+  window.addEventListener('scroll', () => {
+    updateToc();
+    updateProgress();
+  }, { passive: true });
+
+  // Init
+  updateToc();
+  updateProgress();
+})();
+</script>

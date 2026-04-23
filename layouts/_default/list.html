@@ -1,0 +1,49 @@
+{{ define "main" }}
+
+<div class="section-page">
+
+  <header class="section-header">
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Params.description }}
+      <p class="section-description">{{ . }}</p>
+    {{ end }}
+
+    {{ if .Content }}
+      <div class="section-content">
+        {{ .Content }}
+      </div>
+    {{ end }}
+  </header>
+
+  <div class="section-grid">
+    {{ range .Pages.ByDate.Reverse }}
+      <article class="section-card">
+
+        <h2>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+
+        {{ with .Date }}
+          <div class="section-meta">{{ .Format "02 Jan 2006" }}</div>
+        {{ end }}
+
+        {{ with .Summary }}
+          <p class="section-summary">{{ . }}</p>
+        {{ end }}
+
+        {{ with .Params.tags }}
+          <div class="section-tags">
+            {{ range . }}
+              <span class="section-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+
+      </article>
+    {{ end }}
+  </div>
+
+</div>
+
+{{ end }}

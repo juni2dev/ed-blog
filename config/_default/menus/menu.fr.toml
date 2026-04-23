@@ -1,0 +1,39 @@
+[[main]]
+name = "Accueil"
+pageRef = "/"
+weight = 1
+
+[[main]]
+name = "Cybersécurité"
+pageRef = "/cybersecurite"
+weight = 2
+
+[[main]]
+name = "Réseaux"
+pageRef = "/reseau"
+weight = 3
+
+[[main]]
+name = "Labs"
+pageRef = "/labs"
+weight = 4
+
+[[main]]
+name = "Articles"
+pageRef = "/articles"
+weight = 5
+
+[[main]]
+name = "À propos"
+pageRef = "/about"
+weight = 6
+
+[[social]]
+  name = "GitHub"
+  url = "https://github.com/juni2dev"
+  weight = 1
+
+[[social]]
+  name = "LinkedIn"
+  url = "https://linkedin.com/in/edmond-kameni"
+  weight = 2

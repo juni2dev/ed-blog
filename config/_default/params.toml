@@ -1,0 +1,31 @@
+#SEO
+description = "Blog technique – Cybersécurité, Réseaux & MLOps"
+keywords = ["cybersecurity, network, devsecops"]
+
+dateFormat = "02 January 2006"
+
+defaultTheme = "auto"
+
+mainSections = ["Cybersécurité", "Réseaux", "DevSecOps/Infra", "Labs", "Articles"]
+
+showShare = false
+numberOfRecentPosts = 5
+codeLineNumbers = true
+codeMaxLines = 30
+customFonts = true #enable a custom style (css,js)
+introURL = "/about/"
+enableSearch = true
+
+
+# Show related content at the end of an article or in the sidebar, based on the 'series' taxonomy.
+# Both parameters can be overridden in the post's front matter.
+showRelatedInArticle = true
+showRelatedInSidebar = true
+
+# customize footer icon. see issue https://github.com/chipzoller/hugo-clarity/issues/77
+# footerLogo = "icons/copy.svg"
+
+
+
+[author]
+  name = "NetSec Core"
