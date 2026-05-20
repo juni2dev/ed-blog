@@ -27,5 +27,11 @@ showRelatedInSidebar = true
 logo = "/images/logo.svg"
 
 
+# Commentaires Utterances (GitHub Issues)
+utterances        = true
+utterancesRepo    = "juni2dev/juni2dev.github.io"
+utterancesIssueTerm = "pathname"
+utterancesTheme   = "github-dark"
+
 #[author]
   #name = "NetSec Core"

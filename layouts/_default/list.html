@@ -19,23 +19,31 @@
   {{ if .Pages }}
   <div class="section-grid">
     {{ range .Pages.ByDate.Reverse }}
-    <article class="section-card">
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-      <div class="section-meta">
-        <span>{{ .Date.Format "02 Jan 2006" }}</span>
-        <span>·</span>
-        <span>{{ .ReadingTime }} min de lecture</span>
+    {{ $pageTitle := .Title }}
+    <article class="section-card{{ if .Params.thumbnail }} section-card--has-thumb{{ end }}">
+      {{ with .Params.thumbnail }}
+      <div class="section-card-thumb-wrap">
+        <img class="section-card-thumb" src="/{{ . }}" alt="{{ $pageTitle }}" loading="lazy">
       </div>
-      {{ with .Summary }}<p class="section-excerpt">{{ . | plainify | truncate 280 }}</p>{{ end }}
-      <div class="section-card-footer">
-        {{ if .Params.tags }}
-        <div class="section-tags">
-          {{ range first 3 .Params.tags }}
-          <span class="section-tag">{{ . }}</span>
-          {{ end }}
+      {{ end }}
+      <div class="section-card-body">
+        <a href="{{ .Permalink }}" class="section-card-title">{{ .Title }}</a>
+        <div class="section-meta">
+          <span>{{ .Date.Format "02 Jan 2006" }}</span>
+          <span>·</span>
+          <span>{{ .ReadingTime }} min de lecture</span>
         </div>
-        {{ end }}
-        <a href="{{ .Permalink }}" class="section-read-more">Lire la suite →</a>
+        {{ with .Summary }}<p class="section-excerpt">{{ . | plainify | truncate 240 }}</p>{{ end }}
+        <div class="section-card-footer">
+          {{ if .Params.tags }}
+          <div class="section-tags">
+            {{ range first 3 .Params.tags }}
+            <span class="section-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+          <a href="{{ .Permalink }}" class="section-read-more">Lire la suite →</a>
+        </div>
       </div>
     </article>
     {{ end }}

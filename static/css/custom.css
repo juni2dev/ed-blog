@@ -90,6 +90,13 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; }
 /* ================================================
    HEADER / NAVBAR
 ================================================ */
+/* Aligner la largeur de la page sur celle des cartes */
+div.section-page {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
 header {
   background: linear-gradient(90deg, #060f1c 0%, #0a1f3d 100%) !important;
   box-shadow: 0 1px 0 rgba(56,189,248,0.08), 0 4px 24px rgba(0,0,0,0.3);
@@ -130,10 +137,10 @@ footer .icon_2 {
 ================================================ */
 div.grid-inverse.wrap.content {
   display: grid !important;
-  grid-template-columns: 220px minmax(0, 1fr) 230px !important;
+  grid-template-columns: 300px minmax(0, 1fr) 300px !important;
   gap: 1.5rem !important;
-  max-width: 100% !important;
-  margin: 1.5rem 0 !important;
+  max-width: 1500px !important;
+  margin: 1.5rem auto !important;
   padding: 0 !important;
   align-items: start !important;
 }
@@ -929,7 +936,8 @@ header.section-header {
   background: linear-gradient(135deg, #060d1a 0%, #0a1f3d 100%);
   color: #fff;
   padding: 2.8rem 3rem;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
+  max-width: 1200px;
   border-radius: 16px;
   position: relative;
   overflow: hidden;
@@ -1020,40 +1028,89 @@ header.section-header h1::after {
 }
 
 div.section-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)) !important;
-  gap: 1.2rem;
-  padding: 1.5rem 2rem 2rem;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem;
+  padding: 1.5rem 2rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .section-grid {
-  padding: 1.5rem 2rem 3rem;
+  padding: 0;
 }
 
 article.section-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left: 3px solid transparent;
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
-  padding: 1.5rem 1.7rem;
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-left-color 0.22s ease;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 article.section-card:hover {
   transform: translateY(-4px);
-  border-left-color: var(--color-accent);
+  border-color: var(--color-accent);
   box-shadow: 0 12px 36px rgba(15,23,42,0.13), var(--shadow-glow);
 }
 
 html[data-mode="dim"] article.section-card:hover {
   box-shadow: 0 12px 36px rgba(0,0,0,0.4), 0 0 20px rgba(56,189,248,0.08);
-  border-color: rgba(56,189,248,0.15);
-  border-left-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
+
+/* Panneau image gauche */
+.section-card-thumb-wrap {
+  flex-shrink: 0;
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-right: 1px solid var(--color-border);
+  padding: 1.25rem;
+}
+
+html[data-mode="dim"] .section-card-thumb-wrap {
+  background: #f1f5f9;
+}
+
+.section-card-thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+article.section-card:hover .section-card-thumb {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+/* Contenu texte droite */
+.section-card-body {
+  flex: 1;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.section-card-title {
+  font-size: 1.05rem !important;
+  font-weight: 700;
+  color: var(--color-primary) !important;
+  text-decoration: none !important;
+  border: none !important;
+  line-height: 1.35;
+}
+
+.section-card-title:hover { color: var(--color-accent) !important; }
 
 article.section-card a {
   font-size: 1.05rem !important;
@@ -1315,4 +1372,13 @@ footer.footer { display: none !important; }
   .home-sections-grid, .home-recent-grid { grid-template-columns: 1fr; }
   header.section-header { padding: 2rem 1.5rem; }
   div.section-grid { padding: 1rem 1rem 2rem; }
+  /* Cartes : image en haut sur mobile */
+  article.section-card { flex-direction: column; }
+  .section-card-thumb-wrap {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.2rem;
+  }
+  .section-card-thumb { width: 64px; height: 64px; }
 }
